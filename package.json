@@ -1,0 +1,15 @@
+{
+	"name": "nanos-ide-gui",
+	"scripts": {
+		"start": "parcel ./src/index.html"
+	},
+	"devDependencies": {
+		"buffer": "^6.0.3",
+		"parcel": "^2.7.0",
+		"process": "^0.11.10"
+	},
+	"dependencies": {
+		"lodash": "^4.17.21",
+		"monaco-editor": "0.31.0"
+	}
+}

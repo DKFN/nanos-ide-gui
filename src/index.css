@@ -1,0 +1,47 @@
+body {
+    height: 100vh;
+    font-family: Arial, serif;
+    background-color: #2B2D2D;
+}
+
+#main-container {
+    display: flex;
+    min-height: 95vh;
+}
+
+#toolbar-container {
+    height: 5vh;
+}
+
+#monaco-container {
+    padding-left: 8px;
+    width: 800px;
+    height: 800px;
+}
+
+#file-tree {
+    display: flex;
+    flex-direction: column;
+}
+
+.indent {
+    padding-left: 1rem;
+}
+
+.file-or-folder {
+    display: inline-flex;
+    padding-top: 2px;
+    cursor: pointer;
+}
+
+.file-or-folder:hover {
+    background-color: grey;
+}
+
+.icon {
+    padding-right: 4px;
+}
+
+.package-folder {
+    color: white;
+}

@@ -1,27 +1,51 @@
 body {
-    height: 100vh;
+    height: 100%;
     font-family: Arial, serif;
     background-color: #2B2D2D;
 }
 
 #main-container {
     display: flex;
-    min-height: 95vh;
+    min-height: 90vh;
 }
 
 #toolbar-container {
-    height: 5vh;
+    height: 3vh;
+    display: flex;
+    padding-bottom: 16px;
+    align-items: center;
+}
+
+.toolbar-btn {
+    cursor: pointer;
+    padding: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+.toolbar-btn:hover {
+    background-color: grey;
 }
 
 #monaco-container {
+    width: 85vw;
+    height: 90vh;
     padding-left: 8px;
-    width: 800px;
-    height: 800px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
 }
 
 #file-tree {
     display: flex;
     flex-direction: column;
+    min-width: 10vw;
+    max-width: 10vw;
+    max-height: 90vh;
+    overflow-x: scroll;
+    user-select: none;
 }
 
 .indent {
@@ -43,5 +67,10 @@ body {
 }
 
 .package-folder {
+    color: white;
+}
+
+#footer {
+    padding-top: 2vh;
     color: white;
 }

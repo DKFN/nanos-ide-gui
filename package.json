@@ -1,12 +1,27 @@
 {
 	"name": "nanos-ide-gui",
 	"scripts": {
-		"start": "parcel ./src/index.html"
+		"start": "parcel ./src/index.html",
+		"build": "parcel build --no-source-maps --no-optimize --public-url '.' ./src/index.html; ts-node ./fix-script-tag.ts"
+	},
+	"targets": {
+		"legacy": {
+			"distDir": "./dist",
+			"engines": {
+				"browsers": "> 0.5%, last 2 versions, not dead",
+				"outputFormat": "global"
+			}
+		}
 	},
 	"devDependencies": {
 		"buffer": "^6.0.3",
+		"colors": "^1.4.0",
+		"node-html-parser": "^5.3.3",
 		"parcel": "^2.7.0",
-		"process": "^0.11.10"
+		"parcel-namer-without-hash": "^0.0.1",
+		"process": "^0.11.10",
+		"terser": "^5.14.2",
+		"ts-node": "^10.9.1"
 	},
 	"dependencies": {
 		"lodash": "^4.17.21",

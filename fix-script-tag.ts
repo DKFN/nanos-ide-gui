@@ -2,6 +2,8 @@ import { readFileSync, unlinkSync, writeFileSync } from 'fs'
 import { parse } from 'node-html-parser'
 import * as colors from 'colors/safe'
 
+
+// TODO: Lmao this is ugly needs some rework !
 const fixScriptTag = function (): string | null {
     const distDirectoryPath = './dist/'
     const indexFileName = 'index.html'

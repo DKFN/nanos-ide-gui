@@ -6,7 +6,7 @@ body {
 
 #main-container {
     display: flex;
-    min-height: 90vh;
+    min-height: 85vh;
 }
 
 #toolbar-container {
@@ -29,7 +29,7 @@ body {
 
 #monaco-container {
     width: 85vw;
-    height: 90vh;
+    height: 85vh;
     padding-left: 8px;
 }
 
@@ -43,7 +43,7 @@ body {
     flex-direction: column;
     min-width: 10vw;
     max-width: 10vw;
-    max-height: 90vh;
+    max-height: 85vh;
     overflow-x: scroll;
     user-select: none;
 }

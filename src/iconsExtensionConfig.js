@@ -10,6 +10,12 @@ import jsx from "./icons/react.svg";
 import tsx from "./icons/react_ts.svg";
 import css from "./icons/css.svg";
 import json from "./icons/json.svg";
+import md from "./icons/markdown.svg";
+// import log from "./icons/log.svg";
+// import svg from "./icons/svg.svg";
+// import image from" ./icons/image.svg";
+// import zip from" ./icons/zip.svg";
+// const image = svg;
 
 const _iconsSet = {
     lua,
@@ -23,7 +29,16 @@ const _iconsSet = {
     tsx,
     css,
     json,
-    htm: html,
+    md,
+    // log,
+    // svg,
+    // zip,
+    // png: image,
+    // jpg: image,
+    // jpeg: image,
+    // gif: image,
+    // webp: image,
+    // htm: html,
     undefined: lol,
 };
 

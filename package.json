@@ -2,7 +2,7 @@
 	"name": "nanos-ide-gui",
 	"scripts": {
 		"start": "parcel ./src/index.html",
-		"build": "parcel build --no-source-maps --no-optimize --public-url '.' ./src/index.html; ts-node ./fix-script-tag.ts"
+		"build": "rm -rf ./dist && parcel build --no-source-maps --public-url '.' ./src/index.html; ts-node ./fix-script-tag.ts"
 	},
 	"targets": {
 		"legacy": {

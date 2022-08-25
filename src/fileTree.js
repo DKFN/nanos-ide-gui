@@ -11,7 +11,6 @@ let openDirectoryState = {
 
 const onClickFile = (mouseEvent) => {
     const dataContainingElement = mouseEvent.target.closest('.file-or-folder');
-    // console.log("Received mouse event on click", dataContainingElement);
     const packageName = dataContainingElement.getAttribute("data-pkg");
     const filePath = dataContainingElement.getAttribute("data-filepath");
     const type = dataContainingElement.getAttribute("data-type");
@@ -20,8 +19,7 @@ const onClickFile = (mouseEvent) => {
         Events.Call("NIDE:CLIENT_ASK_FILE_CONTENTS", JSON.stringify({packageName, filePath, ext}));
 
     if (type === "DIRECTORY") {
-        const searchKey = packageName + '/' + filePath
-        console.log("Search key : ", {searchKey, s: openDirectoryState[searchKey]});
+        const searchKey = packageName + '/' + filePath;
         openDirectoryState[searchKey] = !openDirectoryState[searchKey];
         fileTreeMain();
     }
@@ -57,10 +55,8 @@ const buildDirectoryTree = (filePaths, pkgName, prefix = "") => {
 const renderDirectoryTree = (node, identLevel = 0) => {
     if (!node) return "";
 
-    if (!node.type) {
-        // TODO: Handle arrays of nodes
+    if (!node.type)
         return _.orderBy(node, (n) => n.type === "DIRECTORY" ? -1 : 1).map((e) => renderDirectoryTree(e, identLevel + 1)).join('');
-    }
 
     return  `
         <span 
@@ -99,12 +95,8 @@ const renderError = () => `
 `
 
 function fileTreeMain() {
-    console.log("Generated open directorys", openDirectoryState);
-    // console.log("All files : ", ___allPackages);
     if (!___allPackages) return;
-    const allFiles = Object.values(___allPackages).flatMap((pkgfl) => pkgfl.files);
     const allPackages = Object.keys(___allPackages);
-    // console.log("All packages : ", allPackages);
     const allTrees = allPackages.map((pkgName) => {
         const allPackagesFiles = ___allPackages[pkgName].files;
         return {
@@ -115,12 +107,7 @@ function fileTreeMain() {
             ext: "pkg"
         };
     })
-    // console.log("All files : ", allFiles);
-    // const splittedFilePaths = ___allPackages['test'].files.map((filePath) => filePath.split('/'));
-    // console.log(buildDirectoryTree(splittedFilePaths));
-    // console.log("Generated all trees ", allTrees);
     const renderString = allTrees.length === 0 ? renderError() : renderDirectoryTree(allTrees);
-    // console.log("Rendered string : ", renderString);
     const fte = document.getElementById("file-tree");
     fte.innerHTML = renderString;
     fte.removeEventListener("click", onClickFile);
@@ -129,7 +116,6 @@ function fileTreeMain() {
 
 setInterval(fileTreeMain, 10000, ___allPackages);
 Events.Subscribe("NIDE:JS_SEND_PKG_INFOS", (pkgData) => {
-    // console.log("received pkg data : ", pkgData);
     window.___allPackages = JSON.parse(pkgData);
     fileTreeMain();
 });
